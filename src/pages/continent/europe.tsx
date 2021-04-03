@@ -1,5 +1,5 @@
 import { Box, Flex, Icon, Image, Text, Wrap, WrapItem } from "@chakra-ui/react";
-import { Header } from "../components/Header";
+import { Header } from "../../components/Header";
 import { InfoOutlineIcon } from "@chakra-ui/icons";
 
 export default function Continent() {
@@ -36,7 +36,7 @@ export default function Continent() {
         justify="center"
         direction="column"
       >
-        <Flex justify="space-between" align="center">
+        <Flex justify="space-between" align="center" wrap="wrap">
           <Box width="45%">
             <Text textAlign="justify" fontSize="2xl" lineHeight="4xl">
               A Europa é, por convenção, um dos seis continentes do mundo.
@@ -46,7 +46,7 @@ export default function Continent() {
               sudeste
             </Text>
           </Box>
-          <Flex width="45%" justify="space-between">
+          <Flex width="45%" minW="md" maxW="2xl" justify="space-between">
             <Box display="flex" flexDirection="column" alignItems="center">
               <Text fontSize="4xl" color="yellow.400" fontWeight="semibold">
                 50
@@ -125,7 +125,7 @@ export default function Continent() {
                   borderRadius="4px"
                   borderColor="rgba(255,186,8,0.5)"
                 >
-                  <Image src="/continents/europe/london.png" />
+                  <Image src="/continents/europe/paris.png" />
                   <Flex
                     justifyContent="space-between"
                     alignItems="center"
@@ -140,12 +140,12 @@ export default function Continent() {
                       height="100%"
                     >
                       <Text fontSize="xl" fontWeight="semibold">
-                        Londres
+                        Paris
                       </Text>
-                      <Text fontWeight="medium">Reino Unido</Text>
+                      <Text fontWeight="medium">França</Text>
                     </Box>
                     <Image
-                      src="/continents/europe/uk.png"
+                      src="/continents/europe/france.png"
                       width="30px"
                       height="30px"
                     />
@@ -159,7 +159,7 @@ export default function Continent() {
                   borderRadius="4px"
                   borderColor="rgba(255,186,8,0.5)"
                 >
-                  <Image src="/continents/europe/london.png" />
+                  <Image src="/continents/europe/roma.png" />
                   <Flex
                     justifyContent="space-between"
                     alignItems="center"
@@ -174,12 +174,12 @@ export default function Continent() {
                       height="100%"
                     >
                       <Text fontSize="xl" fontWeight="semibold">
-                        Londres
+                        Roma
                       </Text>
-                      <Text fontWeight="medium">Reino Unido</Text>
+                      <Text fontWeight="medium">Itália</Text>
                     </Box>
                     <Image
-                      src="/continents/europe/uk.png"
+                      src="/continents/europe/italy.png"
                       width="30px"
                       height="30px"
                     />
@@ -193,7 +193,7 @@ export default function Continent() {
                   borderRadius="4px"
                   borderColor="rgba(255,186,8,0.5)"
                 >
-                  <Image src="/continents/europe/london.png" />
+                  <Image src="/continents/europe/praga.png" />
                   <Flex
                     justifyContent="space-between"
                     alignItems="center"
@@ -208,12 +208,12 @@ export default function Continent() {
                       height="100%"
                     >
                       <Text fontSize="xl" fontWeight="semibold">
-                        Londres
+                        Praga
                       </Text>
-                      <Text fontWeight="medium">Reino Unido</Text>
+                      <Text fontWeight="medium">República Tcheca</Text>
                     </Box>
                     <Image
-                      src="/continents/europe/uk.png"
+                      src="/continents/europe/czech.png"
                       width="30px"
                       height="30px"
                     />
@@ -227,7 +227,7 @@ export default function Continent() {
                   borderRadius="4px"
                   borderColor="rgba(255,186,8,0.5)"
                 >
-                  <Image src="/continents/europe/london.png" />
+                  <Image src="/continents/europe/amsterda.png" />
                   <Flex
                     justifyContent="space-between"
                     alignItems="center"
@@ -242,12 +242,12 @@ export default function Continent() {
                       height="100%"
                     >
                       <Text fontSize="xl" fontWeight="semibold">
-                        Londres
+                        Amstedã
                       </Text>
-                      <Text fontWeight="medium">Reino Unido</Text>
+                      <Text fontWeight="medium">Holanda</Text>
                     </Box>
                     <Image
-                      src="/continents/europe/uk.png"
+                      src="/continents/europe/netherlands.png"
                       width="30px"
                       height="30px"
                     />

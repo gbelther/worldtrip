@@ -10,10 +10,11 @@ import {
 } from "@chakra-ui/react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore from "swiper";
+import SwiperCore, { Navigation, Pagination } from "swiper";
 import "swiper/swiper-bundle.css";
 import { Header } from "../components/Header";
-// import "./styles.css";
+
+SwiperCore.use([Navigation, Pagination]);
 
 export default function Home() {
   return (
@@ -132,16 +133,52 @@ export default function Home() {
         </Flex>
 
         <Flex>
-          <Swiper id="main">
-            <SwiperSlide>
-              <Image src="/continents/europe.png" width="100%" />
+          {/* <Swiper
+            tag="section"
+            wrapperTag="ul"
+            navigation
+            pagination
+            spaceBetween={0}
+            slidesPerView={1}
+            onInit={(swiper) => console.log("Swiper initialize!", swiper)}
+            onSlideChange={(swiper) => {
+              console.log("Slide index changed to: ", swiper.activeIndex);
+            }}
+            onReachEnd={() => console.log("Swiper end reached")}
+          >
+            <SwiperSlide tag="li">
+              <Image
+                src="/continents/europe.png"
+                width="100%"
+                style={{ listStyle: "none" }}
+              />
             </SwiperSlide>
-            <SwiperSlide>
-              <Image src="/continents/europe.png" width="100%" />
+            <SwiperSlide tag="li">
+              <Image
+                src="/continents/europe.png"
+                width="100%"
+                style={{ listStyle: "none" }}
+              />
             </SwiperSlide>
-            <SwiperSlide>
-              <Image src="/continents/europe.png" width="100%" />
+            <SwiperSlide tag="li">
+              <Image
+                src="/continents/europe.png"
+                width="100%"
+                style={{ listStyle: "none" }}
+              />
             </SwiperSlide>
+          </Swiper> */}
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={3}
+            onSlideChange={() => console.log("slide change")}
+            onSwiper={(swiper) => console.log(swiper)}
+          >
+            <SwiperSlide>Slide 1</SwiperSlide>
+            <SwiperSlide>Slide 2</SwiperSlide>
+            <SwiperSlide>Slide 3</SwiperSlide>
+            <SwiperSlide>Slide 4</SwiperSlide>
+            ...
           </Swiper>
         </Flex>
       </Flex>
