@@ -10,11 +10,11 @@ import {
 } from "@chakra-ui/react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Pagination } from "swiper";
+import SwiperCore, { A11y, Navigation, Pagination, Scrollbar } from "swiper";
 import "swiper/swiper-bundle.css";
 import { Header } from "../components/Header";
 
-SwiperCore.use([Navigation, Pagination]);
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 export default function Home() {
   return (
@@ -132,53 +132,54 @@ export default function Home() {
           <Text fontSize="4xl">Então escolha seu continente</Text>
         </Flex>
 
-        <Flex>
-          {/* <Swiper
-            tag="section"
-            wrapperTag="ul"
-            navigation
-            pagination
-            spaceBetween={0}
-            slidesPerView={1}
-            onInit={(swiper) => console.log("Swiper initialize!", swiper)}
-            onSlideChange={(swiper) => {
-              console.log("Slide index changed to: ", swiper.activeIndex);
-            }}
-            onReachEnd={() => console.log("Swiper end reached")}
-          >
-            <SwiperSlide tag="li">
-              <Image
-                src="/continents/europe.png"
-                width="100%"
-                style={{ listStyle: "none" }}
-              />
-            </SwiperSlide>
-            <SwiperSlide tag="li">
-              <Image
-                src="/continents/europe.png"
-                width="100%"
-                style={{ listStyle: "none" }}
-              />
-            </SwiperSlide>
-            <SwiperSlide tag="li">
-              <Image
-                src="/continents/europe.png"
-                width="100%"
-                style={{ listStyle: "none" }}
-              />
-            </SwiperSlide>
-          </Swiper> */}
+        <Flex w="100%" align="center" justify="center">
           <Swiper
             spaceBetween={50}
-            slidesPerView={3}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}
           >
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            ...
+            <SwiperSlide>
+              <Center
+                w="90vw"
+                h="md"
+                bgImage="url('/continents/europe.png')"
+                bgSize="cover"
+                bgRepeat="no-repeat"
+                align="center"
+              >
+                <Stack>
+                  <Text
+                    as="h2"
+                    fontSize="3rem"
+                    fontWeight="bold"
+                    color="gray.100"
+                  >
+                    Europe
+                  </Text>
+                  <Text
+                    as="span"
+                    fontSize="1.5rem"
+                    fontWeight="bold"
+                    color="gray.300"
+                  >
+                    O continente mais antigo.
+                  </Text>
+                </Stack>
+              </Center>
+            </SwiperSlide>
+
+            {/* <SwiperSlide>
+              <Image src="/continents/europe.png" width="100%" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image src="/continents/europe.png" width="100%" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image src="/continents/europe.png" width="100%" />
+            </SwiperSlide> */}
           </Swiper>
         </Flex>
       </Flex>
