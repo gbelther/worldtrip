@@ -8,6 +8,16 @@ Este projeto foi desenvolvido do zero em um dos desafios do bootcamp Ignite: Tri
 - Typescript
 - ChakraUI
 
+<h4>Como inicializar o projeto</h4>
+
+> git clone git@github.com:gbelther/worldtrip.git
+
+> cd worldtrip
+
+> yarn
+
+> yarn dev
+
 <h4>Imagens do Projeto</h4>
 
 ![image](https://user-images.githubusercontent.com/68357487/113748578-0aeb5380-96df-11eb-80de-f1dcbd1322d5.png)
