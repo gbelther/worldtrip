@@ -1,22 +1,28 @@
 import {
-  Box,
   Center,
   Flex,
   Image,
   Stack,
   Text,
+  useBreakpointValue,
   Wrap,
-  WrapItem,
 } from "@chakra-ui/react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { A11y, Navigation, Pagination, Scrollbar } from "swiper";
 import "swiper/swiper-bundle.css";
 import { Header } from "../components/Header";
+import { SwiperItem } from "../components/SwiperItem";
+import { CategoryItem } from "../components/CategoryItem";
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 export default function Home() {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
+
   return (
     <Flex direction="column" justify="center" align="center" mb={12}>
       <Header />
@@ -33,86 +39,29 @@ export default function Home() {
           <Flex direction="column" justify="center" maxWidth="500">
             <Stack spacing="4">
               <Text fontSize="4xl" fontWeight="medium" color="gray.100">
-                5 Continentes, infinitas possibilidades
+                5 Continentes, <br />
+                infinitas possibilidades
               </Text>
               <Text fontSize="xl" fontWeight="regular" color="gray.300">
                 Chegou a hora de tirar do papel a viagem que você sempre sonhou
               </Text>
             </Stack>
           </Flex>
-          <Flex>
-            <Image src="/images/airplane.svg" />
-          </Flex>
+          {isWideVersion && (
+            <Flex position="relative" bottom="-70px">
+              <Image src="/images/airplane.svg" />
+            </Flex>
+          )}
         </Flex>
       </Flex>
 
       <Flex width="100%" justify="center" mt={40}>
         <Wrap spacing={40} display="flex" justify="center">
-          <WrapItem>
-            <Flex direction="column" align="center">
-              <Image src="/images/cocktail.svg" width="85px" />
-              <Text
-                fontSize="2xl"
-                fontWeight="semibold"
-                lineHeight="4xl"
-                pt={4}
-              >
-                vida noturna
-              </Text>
-            </Flex>
-          </WrapItem>
-          <WrapItem>
-            <Flex direction="column" align="center">
-              <Image src="/images/surf.svg" width="85px" />
-              <Text
-                fontSize="2xl"
-                fontWeight="semibold"
-                lineHeight="4xl"
-                pt={4}
-              >
-                vida noturna
-              </Text>
-            </Flex>
-          </WrapItem>
-          <WrapItem>
-            <Flex direction="column" align="center">
-              <Image src="/images/building.svg" width="85px" />
-              <Text
-                fontSize="2xl"
-                fontWeight="semibold"
-                lineHeight="4xl"
-                pt={4}
-              >
-                vida noturna
-              </Text>
-            </Flex>
-          </WrapItem>
-          <WrapItem>
-            <Flex direction="column" align="center">
-              <Image src="/images/museum.svg" width="85px" />
-              <Text
-                fontSize="2xl"
-                fontWeight="semibold"
-                lineHeight="4xl"
-                pt={4}
-              >
-                vida noturna
-              </Text>
-            </Flex>
-          </WrapItem>
-          <WrapItem>
-            <Flex direction="column" align="center">
-              <Image src="/images/earth.svg" width="85px" />
-              <Text
-                fontSize="2xl"
-                fontWeight="semibold"
-                lineHeight="4xl"
-                pt={4}
-              >
-                vida noturna
-              </Text>
-            </Flex>
-          </WrapItem>
+          <CategoryItem image={"/images/cocktail.svg"} text="vida noturna" />
+          <CategoryItem image={"/images/surf.svg"} text="praia" />
+          <CategoryItem image={"/images/building.svg"} text="moderno" />
+          <CategoryItem image={"/images/museum.svg"} text="clássico" />
+          <CategoryItem image={"/images/earth.svg"} text="e mais..." />
         </Wrap>
       </Flex>
 
@@ -142,44 +91,19 @@ export default function Home() {
             onSwiper={(swiper) => console.log(swiper)}
           >
             <SwiperSlide>
-              <Center
-                w="90vw"
-                h="md"
-                bgImage="url('/continents/europe.png')"
-                bgSize="cover"
-                bgRepeat="no-repeat"
-                align="center"
-              >
-                <Stack>
-                  <Text
-                    as="h2"
-                    fontSize="3rem"
-                    fontWeight="bold"
-                    color="gray.100"
-                  >
-                    Europe
-                  </Text>
-                  <Text
-                    as="span"
-                    fontSize="1.5rem"
-                    fontWeight="bold"
-                    color="gray.300"
-                  >
-                    O continente mais antigo.
-                  </Text>
-                </Stack>
-              </Center>
-            </SwiperSlide>
-
-            {/* <SwiperSlide>
-              <Image src="/continents/europe.png" width="100%" />
+              <SwiperItem
+                continentName="Europa"
+                text="O continente mais antigo."
+                image="/continents/europe.png"
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <Image src="/continents/europe.png" width="100%" />
+              <SwiperItem
+                continentName="America"
+                text="O continente com maiores diversidades"
+                image="continents/america.png"
+              />
             </SwiperSlide>
-            <SwiperSlide>
-              <Image src="/continents/europe.png" width="100%" />
-            </SwiperSlide> */}
           </Swiper>
         </Flex>
       </Flex>
